@@ -67,7 +67,7 @@
             },
             locale:             {
                 type:    String,
-                default: "en-gb"
+                default: "ru"
             },
             errorMessageLocale: {
                 type:    String,

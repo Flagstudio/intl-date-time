@@ -171,10 +171,7 @@
                     this,
                     "value",
                     // toAppTimezone
-                    value ? moment(value, this.format).tz(this.userTimezone)
-                                                      .clone()
-                                                      .tz(Nova.config.timezone)
-                                                      .format(this.defaultMomentJSFormat)
+                    value ? moment(value, this.format).format(this.defaultMomentJSFormat)
                           : ""
                 )
             },
