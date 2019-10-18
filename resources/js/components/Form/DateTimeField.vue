@@ -18,7 +18,6 @@
                                        @change="handleChange"
                                        @error="handleError"
                 />
-                <span class="text-80 text-sm ml-2">({{ userTimezone }})</span>
             </div>
             <help-text v-if="firstError" class="error-text mt-2 text-danger">
                 {{ firstError }}
@@ -52,8 +51,6 @@
         },
 
         computed: {
-            userTimezone: () => Nova.config.userTimezone || moment.tz.guess(),
-
             dateFormat() {
                 if (this.field.dateFormat) {
                     try {
@@ -152,10 +149,7 @@
                         this,
                         "localizedValue",
                         // fromAppTimezone
-                        moment(this.value, this.defaultMomentJSFormat).tz(Nova.config.timezone)
-                                                                      .clone()
-                                                                      .tz(this.userTimezone)
-                                                                      .format(this.format)
+                        moment(this.value, this.defaultMomentJSFormat).format(this.format)
                     )
                 }
             },
